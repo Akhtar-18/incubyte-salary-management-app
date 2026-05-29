@@ -8,8 +8,24 @@ export class EmployeeService {
     return employeeRepository.create(data);
   }
 
-  async getEmployees() {
+  /*async getEmployees() {
     return employeeRepository.findAll();
+  }*/
+
+  // New getEmployees method with pagination, filtering, and sorting
+  async getEmployees(query: any) {
+    const page = Number(query.page || 1);
+
+    const limit = Number(query.limit || 10);
+
+    return employeeRepository.findAll(
+      page,
+      limit,
+      query.search,
+      query.country,
+      query.sortBy,
+      query.order
+    );
   }
 
   async getEmployeeById(id: number) {

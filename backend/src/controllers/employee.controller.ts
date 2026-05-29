@@ -16,12 +16,29 @@ export class EmployeeController {
     });
   }
 
-  async getAll(_: Request, res: Response) {
+  /*async getAll(_: Request, res: Response) {
     const employees = await employeeService.getEmployees();
 
     return res.json({
       success: true,
       data: employees
+    });
+  }*/
+  // New getAll method with pagination, filtering, and sorting
+  async getAll(req: Request, res: Response) {
+    const result = await employeeService.getEmployees(req.query);
+
+    return res.json({
+      success: true,
+      data: result.employees,
+      pagination: {
+        page: Number(req.query.page || 1),
+        limit: Number(req.query.limit || 10),
+        total: result.total,
+        totalPages: Math.ceil(
+          result.total / Number(req.query.limit || 10)
+        )
+      }
     });
   }
 
