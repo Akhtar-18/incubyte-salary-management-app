@@ -16,4 +16,13 @@ export class EmployeeController {
     });
   }
 
+  async getAll(_: Request, res: Response) {
+    const employees = await employeeService.getEmployees();
+
+    return res.json({
+      success: true,
+      data: employees
+    });
+  }
+
 }

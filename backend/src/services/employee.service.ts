@@ -7,4 +7,8 @@ export class EmployeeService {
     return employeeRepository.create(data);
   }
 
+  async getEmployees() {
+    return employeeRepository.findAll();
+  }
+
 }

@@ -7,4 +7,12 @@ export class EmployeeRepository {
     });
   }
 
+  async findAll() {
+    return prisma.employee.findMany({
+      orderBy: {
+        createdAt: "desc"
+      }
+    });
+  }
+
 }

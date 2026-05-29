@@ -6,5 +6,6 @@ const router = Router();
 const employeeController = new EmployeeController();
 
 router.post("/", employeeController.create);
+router.get("/", employeeController.getAll);
 
 export default router;
