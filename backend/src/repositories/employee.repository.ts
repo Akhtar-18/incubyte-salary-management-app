@@ -15,4 +15,17 @@ export class EmployeeRepository {
     });
   }
 
+  async findById(id: string) {
+    return prisma.employee.findUnique({
+      where: { id }
+    });
+  }
+
+  async update(id: string, data: any) {
+    return prisma.employee.update({
+      where: { id },
+      data
+    });
+  }
+
 }

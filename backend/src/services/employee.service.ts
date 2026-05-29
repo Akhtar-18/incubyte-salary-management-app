@@ -11,4 +11,12 @@ export class EmployeeService {
     return employeeRepository.findAll();
   }
 
+  async getEmployeeById(id: string) {
+    return employeeRepository.findById(id);
+  }
+
+  async updateEmployee(id: string, data: any) {
+    return employeeRepository.update(id, data);
+  }
+
 }

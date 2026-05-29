@@ -25,4 +25,27 @@ export class EmployeeController {
     });
   }
 
+  async getById(req: Request, res: Response) {
+    const employee = await employeeService.getEmployeeById(
+      String(req.params.id)
+    );
+
+    return res.json({
+      success: true,
+      data: employee
+    });
+  }
+
+  async update(req: Request, res: Response) {
+    const employee = await employeeService.updateEmployee(
+      String(req.params.id),
+      req.body
+    );
+
+    return res.json({
+      success: true,
+      data: employee
+    });
+  }
+
 }
