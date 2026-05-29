@@ -12,7 +12,7 @@ export class EmployeeController {
 
     return res.status(201).json({
       success: true,
-      data: employee
+      data: employee,
     });
   }
 
@@ -35,10 +35,8 @@ export class EmployeeController {
         page: Number(req.query.page || 1),
         limit: Number(req.query.limit || 10),
         total: result.total,
-        totalPages: Math.ceil(
-          result.total / Number(req.query.limit || 10)
-        )
-      }
+        totalPages: Math.ceil(result.total / Number(req.query.limit || 10)),
+      },
     });
   }
 
@@ -49,7 +47,7 @@ export class EmployeeController {
 
     return res.json({
       success: true,
-      data: employee
+      data: employee,
     });
   }
 
@@ -61,7 +59,7 @@ export class EmployeeController {
 
     return res.json({
       success: true,
-      data: employee
+      data: employee,
     });
   }
 
@@ -70,8 +68,7 @@ export class EmployeeController {
 
     return res.json({
       success: true,
-      message: "Employee deleted successfully"
+      message: "Employee deleted successfully",
     });
   }
-
 }

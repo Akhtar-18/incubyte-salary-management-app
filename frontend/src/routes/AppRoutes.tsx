@@ -1,15 +1,20 @@
 import { Routes, Route } from "react-router-dom";
 
 import EmployeesPage from "../pages/EmployeesPage";
+import DashboardPage from "../pages/DashboardPage";
 
 export default function AppRoutes() {
-  return (
-    <Routes>
+    return (
+        <Routes>
+            <Route
+                path="/"
+                element={<DashboardPage />}
+            />
 
-      <Route
-        path="/employees"
-        element={<EmployeesPage />}
-      />
-    </Routes>
-  );
+            <Route
+                path="/employees"
+                element={<EmployeesPage />}
+            />
+        </Routes>
+    );
 }

@@ -2,10 +2,13 @@ import express from "express";
 import employeeRoutes from "./routes/employee.routes.js";
 import insightRoutes from "./routes/insight.routes.js";
 import { errorMiddleware } from "./middlewares/error.middleware.js";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/health", (_, res) => {
   res.json({

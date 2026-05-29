@@ -1,52 +1,52 @@
 import { api } from "./axios";
 
 import type {
-  CreateEmployeeInput,
-  EmployeeResponse,
-  EmployeesResponse
+    CreateEmployeeInput,
+    EmployeeResponse,
+    EmployeesResponse
 } from "../types/employee.types";
 
 export const getEmployees =
-  async (): Promise<EmployeesResponse> => {
-    const response =
-      await api.get<EmployeesResponse>(
-        "/employees"
-      );
+    async (): Promise<EmployeesResponse> => {
+        const response =
+            await api.get<EmployeesResponse>(
+                "/employees"
+            );
 
-    return response.data;
-  };
+        return response.data;
+    };
 
 export const createEmployee = async (
-  data: CreateEmployeeInput
+    data: CreateEmployeeInput
 ): Promise<EmployeeResponse> => {
-  const response =
-    await api.post<EmployeeResponse>(
-      "/employees",
-      data
-    );
+    const response =
+        await api.post<EmployeeResponse>(
+            "/employees",
+            data
+        );
 
-  return response.data;
+    return response.data;
 };
 
 export const updateEmployee = async (
-  id: number,
-  data: Partial<CreateEmployeeInput>
+    id: number,
+    data: Partial<CreateEmployeeInput>
 ): Promise<EmployeeResponse> => {
-  const response =
-    await api.put<EmployeeResponse>(
-      `/employees/${id}`,
-      data
-    );
+    const response =
+        await api.put<EmployeeResponse>(
+            `/employees/${id}`,
+            data
+        );
 
-  return response.data;
+    return response.data;
 };
 
 export const deleteEmployee = async (
-  id: number
+    id: number
 ): Promise<{ success: boolean; message: string }> => {
-  const response = await api.delete(
-    `/employees/${id}`
-  );
+    const response = await api.delete(
+        `/employees/${id}`
+    );
 
-  return response.data;
+    return response.data;
 };
