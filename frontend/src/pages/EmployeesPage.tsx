@@ -1,7 +1,7 @@
 import {
-  Container,
-  Typography,
-  CircularProgress
+    Container,
+    Typography,
+    CircularProgress
 } from "@mui/material";
 
 import EmployeeTable from "../components/EmployeeTable";
@@ -9,36 +9,36 @@ import EmployeeTable from "../components/EmployeeTable";
 import { useEmployees } from "../hooks/useEmployees";
 
 export default function EmployeesPage() {
-  const {
-    data,
-    isLoading,
-    isError
-  } = useEmployees();
+    const {
+        data,
+        isLoading,
+        isError
+    } = useEmployees();
 
-  if (isLoading) {
-    return <CircularProgress />;
-  }
+    if (isLoading) {
+        return <CircularProgress />;
+    }
 
-  if (isError) {
+    if (isError) {
+        return (
+            <Typography>
+                Failed to load employees
+            </Typography>
+        );
+    }
+
     return (
-      <Typography>
-        Failed to load employees
-      </Typography>
+        <Container sx={{ mt: 4 }}>
+            <Typography
+                variant="h4"
+                sx={{ mb: 3 }}
+            >
+                Employees
+            </Typography>
+
+            <EmployeeTable
+                employees={data?.data || []}
+            />
+        </Container>
     );
-  }
-
-  return (
-    <Container sx={{ mt: 4 }}>
-      <Typography
-        variant="h4"
-        mb={3}
-      >
-        Employees
-      </Typography>
-
-      <EmployeeTable
-        employees={data?.data || []}
-      />
-    </Container>
-  );
 }
