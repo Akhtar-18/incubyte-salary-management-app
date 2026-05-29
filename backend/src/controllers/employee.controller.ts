@@ -48,4 +48,13 @@ export class EmployeeController {
     });
   }
 
+  async delete(req: Request, res: Response) {
+    await employeeService.deleteEmployee(String(req.params.id));
+
+    return res.json({
+      success: true,
+      message: "Employee deleted successfully"
+    });
+  }
+
 }

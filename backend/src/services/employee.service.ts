@@ -19,4 +19,8 @@ export class EmployeeService {
     return employeeRepository.update(id, data);
   }
 
+  async deleteEmployee(id: string) {
+    return employeeRepository.delete(id);
+  }
+
 }

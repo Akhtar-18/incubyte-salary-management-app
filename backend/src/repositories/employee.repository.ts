@@ -28,4 +28,10 @@ export class EmployeeRepository {
     });
   }
 
+  async delete(id: string) {
+    return prisma.employee.delete({
+      where: { id }
+    });
+  }
+
 }
