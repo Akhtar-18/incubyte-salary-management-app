@@ -27,7 +27,7 @@ export class EmployeeController {
 
   async getById(req: Request, res: Response) {
     const employee = await employeeService.getEmployeeById(
-      String(req.params.id)
+      Number(req.params.id)
     );
 
     return res.json({
@@ -38,7 +38,7 @@ export class EmployeeController {
 
   async update(req: Request, res: Response) {
     const employee = await employeeService.updateEmployee(
-      String(req.params.id),
+      Number(req.params.id),
       req.body
     );
 
@@ -49,7 +49,7 @@ export class EmployeeController {
   }
 
   async delete(req: Request, res: Response) {
-    await employeeService.deleteEmployee(String(req.params.id));
+    await employeeService.deleteEmployee(Number(req.params.id));
 
     return res.json({
       success: true,
