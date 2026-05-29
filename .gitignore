@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+coverage
+.env
+.sqlite
+*.log
+.vscode
+.DS_Store

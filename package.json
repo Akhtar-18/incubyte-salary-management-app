@@ -1,0 +1,33 @@
+{
+  "name": "incubyte-salary-management-app",
+  "version": "1.0.0",
+  "description": "Assessment for Incubyte - Salary management app",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace backend\" \"npm run dev --workspace frontend\"",
+    "test": "npm run test --workspace backend && npm run test --workspace frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akhtar-18/incubyte-salary-management-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Akhtar-18/incubyte-salary-management-app/issues"
+  },
+  "homepage": "https://github.com/Akhtar-18/incubyte-salary-management-app#readme"
+}
